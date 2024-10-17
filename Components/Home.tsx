@@ -13,7 +13,7 @@ const Home = () => {
             <TextEffect/>
             <MouseEffect/>
         </div>
-        <div className='fixed bottom-12 right-20'>
+        <div className='fixed bottom-44 right-44'>
             <MagicIndicator/>
         </div>
     </div>
