@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import {
     FaRegUser,
     FaInstagram,
@@ -7,79 +7,70 @@ import {
     FaGithub,
     FaDiscord,
     FaEnvelope,
+    FaGit
 } from 'react-icons/fa'
 
-const MagicIndicator: React.FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const toggleMenu = (): void => {
-        setIsOpen(!isOpen);
-    };
+const MagicIndicator = () => {
+    const [isOpen, seteIsOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
-    // trig calc for 6 icons - positions
-    const positions = [
-        { x: 0, y: -100 },   // Top (12 o'clock)
-        { x: 86.6, y: -50 }, // Top-right (2 o'clock)
-        { x: 86.6, y: 50 },  // Bottom-right (4 o'clock)
-        { x: 0, y: 100 },    // Bottom (6 o'clock)
-        { x: -86.6, y: 50 }, // Bottom-left (8 o'clock)
-        { x: -86.6, y: -50 }, // Top-left (10 o'clock)
-    ];
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => {
+        if (!isOpen) {
+            setIsHovered(false);
+        }
+    }
+
+    const handleClick = () => seteIsOpen(!isOpen);
+    const handleClickOutside = (event: MouseEvent) => {
+        if(menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            seteIsOpen(false);
+        }
+    }
+
+    useEffect(() => {
+        if(isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [isOpen])
 
   return (
-    <div className='relative w-28 h-28'>
-    {/* Main User Icon */}
-    <button className='w-20 h-20 bg-[#ffffffe4] rounded-full flex items-center justify-center' onClick={toggleMenu}>
-        <FaRegUser size={24} className='text-[#c2410c]' />
-    </button>
+    <div className='transform -translate-y-1/2'>
+        <div className='relative flex items-center justify-center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div onClick={handleClick} className='w-20 h-20 flex items-center justify-center cursor-pointer bg-[#373737] p-3 rounded-full'>
+                <FaRegUser size={20} className='text-[#ffa667]'/>
+            </div>
 
-    {/* Circular Menu */}
-    <div className='relative'>
-        <div className={`absolute w-[180px] h-[180px] transform ${
-            isOpen ? 'scale-100' : 'scale-0'
-        } transition-transform duration-500 ease-out`}
-        style={{ top: '-100px', left: '-100px' }}>
-            {/* Circle of icons */}
-            {positions.map((pos, index) => (
-                <div
-                    key={index}
-                    className="absolute w-16 h-16"
-                    style={{ transform: `translate(${pos.x}px, ${pos.y}px)` }}
-                >
-                    {index === 0 && (
-                        <a href="https://www.instagram.com/emi.dashler/" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaInstagram size={24} className='text-[#ff1ebf]' />
-                        </a>
-                    )}
-                    {index === 1 && (
-                        <a href="https://open.spotify.com/user/kdb6pye33fsroyo3og0i8ijz5" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaSpotify size={24} className='text-[#14b953]' />
-                        </a>
-                    )}
-                    {index === 2 && (
-                        <a href="https://github.com/dashleremi" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaGithub size={24} className='text-[#000000]' />
-                        </a>
-                    )}
-                    {index === 3 && (
-                        <a href="https://discordapp.com/users/emidashler" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaDiscord size={24} className='text-[#449fff]' />
-                        </a>
-                    )}
-                    {index === 4 && (
-                        <a href="https://www.linkedin.com/in/ramiaemidashler" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaLinkedin size={24} className='text-[#2723ff]' />
-                        </a>
-                    )}
-                    {index === 5 && (
-                        <a href="mailto:emi.dashlerl@gmail.com" target='_blank' rel='noopener noreferrer' className='w-16 h-16 bg-[#ffffff] rounded-full flex items-center justify-center hover:bg-[#ffffff4f] transition-colors'>
-                            <FaEnvelope size={24} className='text-[#9f1818]' />
-                        </a>
-                    )}
-                </div>
-            ))}
+            <div className={`absolute bottom-24 flex flex-col justify-center items-center gap-10 p-10 rounded-lg bg-[#ffffff] bg-opacity-30 backdrop-blur-lg transition-all duration-300
+                ${
+                    isHovered || isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6 pointer-events-none'
+                }`}>
+                    <a href="https://www.instagram.com/emi.dashler" target='_blank' rel='noopener noreferrer'>
+                        <FaInstagram size={35} className='text-[#f238ff] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+                    <a href="https://open.spotify.com/user/kdb6pye33fsroyo3og0i8ijz5" target='_blank' rel='noopener noreferrer'>
+                        <FaSpotify size={35} className='text-[#15ce50] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ramiaemidashler" target='_blank' rel='noopener noreferrer'>
+                        <FaLinkedin size={35} className='text-[#2344ff] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+                    <a href="https://github.com/dashleremi" target='_blank' rel='noopener noreferrer'>
+                        <FaGithub size={35} className='text-[#000000] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+                    <a href="https://discordapp.com/users/emidashler" target='_blank' rel='noopener noreferrer'>
+                        <FaDiscord size={35} className='text-[#00e1ff] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+                    <a href="mailto:emi.dashler@gmail.com" target='_blank' rel='noopener noreferrer'>
+                        <FaEnvelope size={35} className='text-[#ff8c8c] hover:text-[#ffffff] cursor-pointer'/>
+                    </a>
+            </div>
         </div>
     </div>
-</div>
   )
 }
 
