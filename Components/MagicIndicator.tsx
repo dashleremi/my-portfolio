@@ -40,7 +40,7 @@ const MagicIndicator = () => {
     }, [isOpen])
 
   return (
-    <div className='transform -translate-y-1/2'>
+    <div className='sticky transform -translate-y-1/2'>
         <div className='relative flex items-center justify-center' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div onClick={handleClick} className='w-20 h-20 flex items-center justify-center cursor-pointer bg-[#373737] p-3 rounded-full'>
                 <FaRegUser size={20} className='text-[#ffa667]'/>

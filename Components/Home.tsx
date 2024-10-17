@@ -14,7 +14,6 @@ const Home = () => {
             <MouseEffect/>
         </div>
         <div className='fixed bottom-44 right-44'>
-            <MagicIndicator/>
         </div>
     </div>
   )
