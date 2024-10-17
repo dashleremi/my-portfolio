@@ -1,3 +1,4 @@
+import About from '@/Components/About'
 import Home from '@/Components/Home'
 import MouseEffect from '@/Components/MouseEffect'
 import NavBar from '@/Components/NavBar'
@@ -8,6 +9,7 @@ const index = () => {
     <div className='overflow-x-hidden'>
       <NavBar/>
       <Home/>
+      <About/>
     </div>
   )
 }

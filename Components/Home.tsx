@@ -1,6 +1,7 @@
 import React from 'react'
 import TextEffect from './TextEffect'
 import MouseEffect from './MouseEffect'
+import MagicIndicator from './MagicIndicator'
 
 const Home = () => {
   return (
@@ -12,7 +13,10 @@ const Home = () => {
             <TextEffect/>
             <MouseEffect/>
         </div>
-    </div>    
+        <div className='fixed bottom-12 right-20'>
+            <MagicIndicator/>
+        </div>
+    </div>
   )
 }
 
