@@ -1,6 +1,8 @@
 import About from '@/Components/About'
+import Experience from '@/Components/Experience'
 import Home from '@/Components/Home'
 import NavBar from '@/Components/NavBar'
+import Skills from '@/Components/Skills'
 import React from 'react'
 
 const index = () => {
@@ -10,6 +12,8 @@ const index = () => {
       <Home/>
       <div>
       <About/>
+      <Skills/>
+      <Experience/>
       </div>
     </div>
   )
