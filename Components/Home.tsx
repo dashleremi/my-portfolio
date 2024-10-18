@@ -1,7 +1,6 @@
-import { useRef } from 'react'
+import React from 'react'
 import TextEffect from './TextEffect'
 import MouseEffect from './MouseEffect'
-import MagicIndicator from './MagicIndicator'
 
 const Home = () => {
   return (

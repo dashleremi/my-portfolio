@@ -6,8 +6,7 @@ import {
     FaLinkedin,
     FaGithub,
     FaDiscord,
-    FaEnvelope,
-    FaGit
+    FaEnvelope
 } from 'react-icons/fa'
 
 const MagicIndicator = () => {
