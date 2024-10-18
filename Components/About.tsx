@@ -4,7 +4,7 @@ import HawaiiTime from './HawaiiTime'
 const About = () => {
   return (
     <div className='flex flex-col items-center text-center'>
-        <h1 className='text-4xl font-normal text-white mt-10'>Welcome to My Portfolio!</h1>
+        <h1 className='text-4xl font-normal text-white mt-10 nav-effect'>Welcome to My Portfolio!</h1>
         <img src='images/IMG_4211.PNG' alt='Emi' className='w-56 h-60 object-cover rounded-lg mt-20'/>
 
         <div className='text-xl font-extralight text-white mt-10'>

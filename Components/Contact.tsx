@@ -11,7 +11,7 @@ const Contact = () => {
     <div className='flex flex-col items-center'>
         <hr className='border-t border-[#ffffff29] mt-36 w-[80%] mx-auto'/>
         <div className='w-[80%] items-start mt-32'>
-            <h1 className='text-4xl font-light text-white'>Contact</h1>
+            <h1 className='text-4xl font-light text-white nav-effect'>Contact</h1>
         </div>
         <div className='w-[80%] flex items-start gap-10 mt-10'>
         <a href="https://github.com/dashleremi" target='_blank' rel='noopener noreferrer'>
@@ -29,7 +29,7 @@ const Contact = () => {
         </div>
 
         <div>
-            
+
         </div>
     </div>
   )
