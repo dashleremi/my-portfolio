@@ -13,9 +13,11 @@ const TextEffect = () => {
             'ux/ui designer',
             1500,
             'web developer',
+            1500,
+            'graphic designer',
             1500
         ]}
-        speed={50}
+        speed={70}
         className='text-[4rem] text-[#f97316] font-extralight lowercase glow-text'
         repeat={Infinity}
         />    

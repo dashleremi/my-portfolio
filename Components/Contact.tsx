@@ -10,7 +10,7 @@ import ContactForm from './ContactForm'
 
 const Contact = () => {
   return (
-    <div className='flex flex-col items-center mb-60'>
+    <div id='contact' className='flex flex-col items-center mb-60'>
         <hr className='border-t border-[#ffffff29] mt-36 w-[80%] mx-auto'/>
         <div className='w-[80%] items-start mt-32'>
             <h1 className='text-4xl font-light text-white nav-effect'>Contact</h1>

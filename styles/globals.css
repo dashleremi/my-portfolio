@@ -8,6 +8,10 @@
     --mainMouse: #fef9c31e;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .glassmorphism-container {
     background: rgba(135, 135, 135, 0.043);
     backdrop-filter: blur(5px);

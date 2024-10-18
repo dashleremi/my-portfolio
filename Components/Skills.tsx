@@ -26,12 +26,16 @@ import {
     SiTailwindcss, 
     SiAdobexd, 
     SiVercel, 
-    SiFlutter } from 'react-icons/si';
+    SiFlutter,
+    SiAdobephotoshop,
+    SiAdobepremierepro,
+    SiAdobeindesign,
+    SiAdobeillustrator } from 'react-icons/si';
 
 
 const Skills = () => {
   return (
-    <div className='flex flex-col items-center text-center'>
+    <div id='skills' className='flex flex-col items-center text-center'>
         <hr className='border-t border-[#ffffff29] mt-36 w-[80%] mx-auto'/>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-28 w-[80%] items-start mt-32'>
@@ -128,16 +132,32 @@ const Skills = () => {
                         <span className='text-white'>TailwindCSS</span>
                     </div>
                     <div className='flex p-2 border border-white rounded-md'>
-                        <SiAdobexd size={20} className='mr-2' color='#470137'/>
-                        <span className='text-white'>Adobe XD</span>
-                    </div>
-                    <div className='flex p-2 border border-white rounded-md'>
                         <SiVercel size={20} className='mr-2' color='white'/>
                         <span className='text-white'>Vercel</span>
                     </div>
                     <div className='flex p-2 border border-white rounded-md'>
                         <SiFlutter size={20} className='mr-2' color='#41d0fd'/>
                         <span className='text-white'>Flutter</span>
+                    </div>
+                    <div className='flex p-2 border border-white rounded-md'>
+                        <SiAdobexd size={20} className='mr-2' color='#470137'/>
+                        <span className='text-white'>Adobe XD</span>
+                    </div>
+                    <div className='flex p-2 border border-white rounded-md'>
+                        <SiAdobephotoshop size={20} className='mr-2' color='#001E36'/>
+                        <span className='text-white'>Photoshop</span>
+                    </div>
+                    <div className='flex p-2 border border-white rounded-md'>
+                        <SiAdobepremierepro size={20} className='mr-2' color='#00005B'/>
+                        <span className='text-white'>Premiere Pro</span>
+                    </div>
+                    <div className='flex p-2 border border-white rounded-md'>
+                        <SiAdobeillustrator size={20} className='mr-2' color='#330000'/>
+                        <span className='text-white'>Illustrator</span>
+                    </div>
+                    <div className='flex p-2 border border-white rounded-md'>
+                        <SiAdobeindesign size={20} className='mr-2' color='#eb43a3'/>
+                        <span className='text-white'>In Design</span>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRef } from 'react'
 import TextEffect from './TextEffect'
 import MouseEffect from './MouseEffect'
 import MagicIndicator from './MagicIndicator'

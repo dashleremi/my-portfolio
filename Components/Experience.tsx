@@ -6,7 +6,7 @@ import { IoPinOutline } from "react-icons/io5";
 
 const Experience = () => {
   return (
-    <div className='flex flex-col items-center'>
+    <div id='experience' className='flex flex-col items-center'>
         <hr className='border-t border-[#ffffff29] mt-36 w-[80%] mx-auto'/>
         <div className='grid grid-cols-1 gap-x-28 w-[80%] items-start mt-32'><h1 className='text-5xl font-normal nav-effect'>Education</h1></div>
         <div className='grid grid-cols-1 gap-x-28 w-[70%] items-start mt-10'>
